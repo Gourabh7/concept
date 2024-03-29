@@ -1,0 +1,32 @@
+this are divisor of n digit number starting from 1digit so 1e9 will have 1344 divisor only
+4, 12, 32, 64, 128, 240, 448, 768, 1344, 2304, 4032, 6720, 10752, 17280, 26880, 41472, 64512, 103680, 161280, 245760, 368640, 552960, 860160, 
+1290240, 1966080, 2764800, 4128768, 6193152, 8957952, 13271040, 19660800, 28311552, 41287680, 59719680, 88473600, 127401984, 181665792, 264241152, 382205952, 530841600
+  a*b = hcf(a,b) * lcm(a,b)
+  if a*b is divisor of x*y then y will be divisible by ((a*b)/(hcf(a*b,x))
+  //code for generating divisor till a , b respectively
+  
+  vector<int>div1,div2;
+	for(int i=1;i*i<=a;i++){
+		if(a%i==0){
+			div1.pb(i);
+			if(i!=a/i){
+				div1.pb(a/i);
+			}
+		}
+	}
+	
+	for(int i=1;i*i<=b;i++){
+		if(b%i==0){
+			div2.pb(i);
+			if(i!=b/i){
+				div2.pb(b/i);
+			}
+		}
+	}
+// code for generating all divisor till product of a*b
+vector<int>div;
+	for(int i=0;i<div1.size();i++){
+		for(int j=0;j<div2.size();j++){
+			div.pb(div1[i]*div2[j]);
+		}
+	}
