@@ -1,0 +1,25 @@
+bool ar[31624];
+sqrt of 1e9;
+is 31624
+void sieve(vector<int> &pn)
+{
+    int maxN =31623;
+    ar[0] = ar[1] = true;
+    for (int i = 2; i * i < maxN; i++)
+    {
+        if (!ar[i])
+        {
+            for (int j = i * i; j <= maxN; j += i)
+            {
+                ar[j] = true;
+            }
+        }
+    }
+    for (int i = 2; i <= maxN; i++)
+    {
+        if (!ar[i])
+        {
+            pn.push_back(i);
+        }
+    }
+}
